@@ -1,0 +1,44 @@
+group 'com.jiguang.jverify'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.2'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 17
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+
+}
+
+dependencies {
+//    implementation fileTree(include: '*.aar', dir: 'libs')
+    implementation 'cn.jiguang.sdk:jcore:3.3.0'
+    implementation 'cn.jiguang.sdk:jverification:2.9.7'
+}
